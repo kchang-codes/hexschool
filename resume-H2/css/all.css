@@ -1,0 +1,221 @@
+/* css reset */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/* basic */
+
+@font-face {
+    font-family: Roboto-Italic;
+    src: url(/fonts/Roboto/Roboto-Italic.ttf);
+    unicode-range: U+00-024F;
+  }
+@font-face {
+    font-family: Roboto-MediumItalic;
+    src: url(/fonts/Roboto/Roboto-MediumItalic.ttf);
+    unicode-range: U+00-024F;
+  }
+body {
+    font-family: Roboto-Italic;
+}
+h1 {
+    font-size: 80px;
+    line-height: 94px;
+    font-weight: 900;
+}
+p{
+    font-size: 24px;
+}
+.title {
+    font-size: 64px;
+    line-height: 75px;
+    font-weight: 600;
+}
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.mt-1 {
+    margin-top: 8px;
+}
+.mt-2 {
+    margin-top: 16px;
+}
+.mt-3 {
+    margin-top: 24px;
+}
+.mt-4 {
+    margin-top: 32px;
+}
+.mt-5 {
+    margin-top: 40px;
+}
+.mt-6 {
+    margin-top: 48px;
+}
+.mt-7 {
+    margin-top: 56px;
+}
+.mt-8 {
+    margin-top: 64px;
+}
+.mr-0 {
+    margin-right: 0px !important;
+}
+.mr-2 {
+    margin-right: 16px;
+}
+.mr-3 {
+    margin-right: 24px;
+}
+.lh-42 {
+    line-height: 42px;
+}
+.w-320 {
+    width: 320px;
+}
+
+/* banner */
+.banner {
+    background:url(../images/banner.png) no-repeat center;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 356px 0 268px;
+}
+.banner-inner {
+    width: 304px;
+    color:#fff;
+}
+.banner-inner p {
+    line-height: 36px;
+}
+.banner img {
+    margin: 48px 16px 0 0;
+}
+
+/* about */
+.about {
+    max-width: 450px;
+    margin: 0 auto;
+    padding-bottom: 20px;
+    text-align: center;
+}
+.about ul li {
+    line-height: 36px;
+    margin-bottom: 8px;
+    font-size: 24px;
+    font-family: Roboto-MediumItalic;
+}
+.about hr {
+    width: 384px;
+}
+.jobs li:before {
+    content: "";
+    display: inline-block;
+    width: 22px;
+    height: 22px;
+    background-color: #891818;
+    border-radius: 50%;
+    margin-right:16px;
+}
+.about .jobs li {
+    margin-bottom: 32px;
+}
+
+/* brand */
+.brand {
+    color:#fff;
+    background: #000;
+    text-align: center;
+    padding:64px 0 160px;
+}
+.brand ul {
+    margin-bottom: 68px;
+}
+.brand ul li {
+    line-height: 30px;
+    font-size: 20px;
+}
+/* works */
+.works {
+    text-align: center;
+    padding: 64px 0 160px;
+}
+.works > p {
+    font-size: 20px;
+    line-height: 30px;
+}
+.works ul{
+    display: flex;
+    flex-wrap: wrap;
+}
+.works ul li {
+    margin: 56px 24px 0 0;
+}
+.works ul li p {
+    font-size: 20px;
+    line-height: 42px;
+}
+.works img {
+    margin-bottom: 16px;
+}
+/* footer */
+footer {
+    background: #000;
+    text-align: center;
+    color: #fff;
+    padding:64px 0 80px
+}
+footer p{
+    line-height: 36px;
+    margin-top: 16px;
+}
+footer a {
+    color: #fff;
+    text-decoration: none;
+}
+footer a:hover {
+    text-decoration:underline;
+}
