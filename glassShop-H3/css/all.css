@@ -14,7 +14,7 @@ fieldset, form, label, legend,
 table, caption, tbody, tfoot, thead, tr, th, td,
 article, aside, canvas, details, embed, 
 figure, figcaption, footer, header, hgroup, 
-menu, nav, output, ruby, section, summary,
+blog-nav, nav, output, ruby, section, summary,
 time, mark, audio, video {
 	margin: 0;
 	padding: 0;
@@ -25,7 +25,7 @@ time, mark, audio, video {
 }
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure, 
-footer, header, hgroup, menu, nav, section {
+footer, header, hgroup, blog-nav, nav, section {
 	display: block;
 }
 body {
@@ -47,244 +47,445 @@ table {
 	border-spacing: 0;
 }
 
-/*
-* Noto Sans TC (Chinese_traditional) http://www.google.com/fonts/earlyaccess
- */ 
- @font-face {
-    font-family: 'Noto Sans TC';
-    font-style: normal;
-    font-weight: 100; 
-     src: url(//fonts.gstatic.com/ea/notosanstc/v1/NotoSansTC-Thin.woff2) format('woff2'), 
-        url(//fonts.gstatic.com/ea/notosanstc/v1/NotoSansTC-Thin.woff) format('woff'), 
-        url(//fonts.gstatic.com/ea/notosanstc/v1/NotoSansTC-Thin.otf) format('opentype');  
-} 
-
-/*預設font-weight*/
- @font-face {
-    font-family: 'Noto Sans TC';
-    font-style: normal;
-    font-weight: 400;  
-      src: url(//fonts.gstatic.com/ea/notosanstc/v1/NotoSansTC-Regular.woff2) format('woff2'),
-        url(//fonts.gstatic.com/ea/notosanstc/v1/NotoSansTC-Regular.woff) format('woff'),
-        url(//fonts.gstatic.com/ea/notosanstc/v1/NotoSansTC-Regular.otf) format('opentype');  
-} 
-
- @font-face {
-    font-family: 'Noto Sans TC';
-    font-style: normal;
-    font-weight: 700; 
-      src: url(//fonts.gstatic.com/ea/notosanstc/v1/NotoSansTC-Bold.woff2) format('woff2'), 
-        url(//fonts.gstatic.com/ea/notosanstc/v1/NotoSansTC-Bold.woff) format('woff'), 
-        url(//fonts.gstatic.com/ea/notosanstc/v1/NotoSansTC-Bold.otf) format('opentype'); 
-} 
-
-html, body {
-    font-family: 'Noto Sans TC', "新細明體";
-    /*如果HTML元素有未套用到字體的話 ↓*/
-    /*font-weight: 400;*/ /*不指定font-weight，預設font-weight:400，所以下載並使用 NotoSansTC-Regular.woff2 */
-}
-
 /* rwd img */
 img{
-  max-width: 100%;
-  height: auto;
+    max-width: 100%;
+    height: auto;
 }
 
 /* 全域 border box */
 *,*::before,*::after{
-  box-sizing: border-box;
+box-sizing: border-box;
 }
 
-/* 主體 CSS */
+/* utility */
 .container{
-  max-width: 1100px;
-  margin: 0 auto;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  @media(max-width:1140px){
+    .container {
+        padding:0px 39px;
+        }
+    } 
+  @media(max-width:767px){
+    .container {
+        padding:0px 15px;
+        }
+    }
+.d-flex {
+    display: flex;
 }
+.flex-column {
+	flex-direction: column;
+}
+.justify-content-start {
+	justify-content: flex-start;
+}
+.justify-content-center {
+	justify-content: center;
+}
+.justify-content-end {
+	justify-content: flex-end;
+}
+.justify-content-between {
+	justify-content: space-between;
+}
+.align-items-center {
+	align-items: center;
+}
+.align-items-end {
+    align-items: flex-end;
+}
+.align-content-end {
+    align-content: flex-end;
+}
+.flex-wrap {
+	flex-wrap: wrap;
+}
+:root {
+    --primary:  #AA0601;
+    --secondary: #650300;
+    --margin-unit: 8px;
+  }
+/* 主體 CSS */
 a {
     color:#fff;
+    display:block;
     text-decoration: none;
 }
-.mr-0 {
-    margin-right: 0px !important;
+html {
+font-size: var(--font-size);
 }
-
-/* header */
-header {
-    background-color: #AA0601;
+body {
+font-family: -apple-system, BlinkMacSystemFont,
+                        "Segoe UI", "Microsoft JhengHei", 
+                        'Noto Sans TC', Roboto,
+                        "Helvetica Neue", Arial,
+                        sans-serif; 
+}
+/* nav*/
+.nav {
+    background-color: var(--primary);
     padding: 30px 88px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
 }
-header ul {
-    display: flex;
+.nav ul li {
+    margin-left: calc(8 * var(--margin-unit));
 }
-header ul li {
-    margin-right: 56px;
-}
-header ul li a {
-    display: block;
+.nav ul li a {
     line-height: 30px;
     font-size: 20px;
     padding:0 12px;
 }
-header ul li a:hover {
-    background-color: #650300;
+.nav ul li a:hover {
+    background-color: var(--secondary);
+}
+.logo a {
+    width: 80px;
+    height: 49px;
+    background: url("../images/logo.png");
+    text-indent: 101%;
+    white-space: nowrap;
+    overflow: hidden;
+}
+@media(max-width:1140px){
+    .nav {
+        padding: 30px 39px;
+    }
+    .nav ul li {
+        margin-left:  calc(5 * var(--margin-unit));
+    }
+}
+@media(max-width:767px){
+    .nav {
+        display:block;
+        padding: 0px;
+        padding-top: 10px;
+    }
+    .nav ul {
+        margin-top: 10px;
+        justify-content: center;
+    }
+    .nav ul li {
+        width: 50%;
+        margin-left: 0px;
+        border: 1px solid #fff;
+        text-align: center;
+        margin:0 0 -1px -1px;
+    }
+    .nav ul li a {
+        padding: 8px 0px;
+    }
+    .logo {
+        display: flex;
+        justify-content: center;
+    }
+    .logo a {
+        width: 48px;
+        height: 29px;
+        background-size: cover;
+
+    }
 }
 
-/* menu */
-.menu {
-    background: #650300;
-}
-.menu .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-.menu ul {
-    display: flex;
-    align-items: center;
-    height: 54px;
-    font-size: 20px;
-    line-height: 24;
-}
-.menu ul li{
-    margin-right: 48px;
-}
-.menu ul li:hover {
-    text-decoration: underline;
-}
-.search {}
-
-/* footer */
-footer {
-    background-color: #AA0601;
-    padding: 48px 0px 28px; 
-    color: #fff;
-}
-.footer-inner {
-    display: flex;
-    justify-content: space-between;  
-    border-bottom: 1px solid #fff;
-}
-.footer-info ul {
-    display: flex;
-}
-.footer-info ul li {
-    margin-right: 48px;
-}
-.footer-info ul li a {
-    font-size: 16px;
-    display: block;
-    line-height: 24px;
-}
-.footer-info ul li a:hover {
-    text-decoration: underline;
-}
-.footer-info p {
-    line-height: 54px;
-    font-size: 36px;
-    background-position-y: center;
-    padding-left: 58px;    
-}
-.phone {
-    margin-top: 32px;
-    background:url(../images/icon-phone.svg) no-repeat;
-}
-.phone a:hover {
-    text-decoration: underline;
-}
-.mail {
-    margin-top: 17px;
-    margin-bottom: 22px;
-    background:url(../images/icon-mail.svg) no-repeat;
-}
-.mail a:hover {
-    text-decoration: underline;
-}
-.media a {
-    margin-right: 32px;
-}
-.copyright {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 24px;
-}
-.copyright div a {
-    margin-right: 38px;
-}
-.copyright span {
-    font-size: 16px;
-}
-.copyright div {
-    display: flex;
-    align-items: center;
-}
-.copyright ul {
-    display: flex;
-    font-size: 14px;
-}
-.copyright ul li {
-    margin-right: 62px;
-}
-.copyright ul li:hover {
-    text-decoration: underline;
-}
-
-/* faq */
-.qa {
-    background: url(../images/qa.png) no-repeat center;
+/* inner-banner */
+.inner-banner {
     background-size: cover;
+    background-position: center;
     height: 304px;
-    position: relative;
 }
-.qa h2 {
-    position: absolute;
-    bottom: 0px;
+.inner-banner .container{
+    height:100%;
+}
+.fqa-banner {
+    background-image: url(../images/qa.png);
+}
+.inner-banner .inner-title {
     font-size: 64px;
     line-height: 80px;
     font-weight: 700;
 }
-.qa img {
+.inner-banner img {
     width: 58px;
+    height:58px;
+    margin: 0px 0px 8px 24px;
 }
+@media(max-width:1140px){
+    .inner-banner .inner-title {
+        font-size: 48px;
+        line-height: 68px;
+    }
+    .inner-banner img {
+        width: 48px;
+        height:48px;
+        margin: 0px 0px 8px 16px;
+    }
+}
+@media(max-width:767px){
+    .inner-banner {
+        height: 143px;
+    }
+    .inner-banner .inner-title {
+        font-size: 28px;
+        line-height: 40px;
+    }
+    .inner-banner img {
+        width: 24px;
+        height: 24px;
+        margin: 0px 0px 8px 8px;
+    }
+}
+
+/* footer */
+footer {
+    background-color:var(--primary);
+    padding: 48px 0px 28px; 
+    color: #fff;
+}
+.footer-main {
+    display: flex;
+    justify-content: space-between;  
+    border-bottom: 1px solid #fff;
+    padding-bottom: 22px;
+}
+.footer-nav {
+    display: flex;
+}
+.footer-nav li {
+    margin-right:  calc(6 * var(--margin-unit));
+}
+.footer-nav li a {
+    font-size: 16px;
+    line-height: 24px;
+}
+.footer-nav li a:hover {
+    text-decoration: underline;
+}
+.footer-contact {
+    margin-top:  calc(4 * var(--margin-unit));
+}
+.footer-contact li {
+    line-height: 54px;
+    font-size: 36px;
+    margin-bottom: 17px;
+}
+.footer-contact li img{
+    margin-right: 20px;
+    vertical-align: middle;
+}
+.footer-contact li a {
+    display: inline-block;
+}
+.footer-contact li a:hover {
+    text-decoration: underline;
+}
+.media ul {
+    display: flex;
+}
+.media ul li a {
+    margin-left:  calc(4 * var(--margin-unit));
+}
+.footer-copyright {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top:  calc(3 * var(--margin-unit));
+}
+.footer-copyright div a {
+    margin-right: 38px;
+}
+.footer-copyright span {
+    font-size: 16px;
+}
+.footer-copyright div {
+    display: flex;
+    align-items: center;
+}
+.footer-copyright ul {
+    display: flex;
+    font-size: 14px;
+}
+.footer-copyright ul li {
+    margin-left: 62px;
+}
+.footer-copyright ul li:hover {
+    text-decoration: underline;
+}
+@media(max-width:1140px){
+    .footer-main {
+        padding-bottom: 27px;
+    }
+    .footer-info ul li {
+        margin-right:  calc(5 * var(--margin-unit));
+    }    
+    .footer-contact {
+        margin-top:  calc(3 * var(--margin-unit));
+    }
+    .footer-contact li {
+        line-height: 30px;
+        font-size: 20px;
+        margin-bottom: 11px;
+    }
+    .footer-contact li img.phone {
+        width: 18px;
+        margin-right: 15px;
+    }
+    .footer-contact li img.mail {
+        width: 24px;
+        margin-right: 10px;
+    }
+    .media ul li a{
+        margin-left:  calc(3 * var(--margin-unit));
+    }
+    .media ul li a img{
+        width: 24px;;
+    }    
+    .footer-copyright div a {
+        display: none;
+    }
+    .footer-copyright ul li {
+        margin-left:  calc(4 * var(--margin-unit));
+    }
+}
+@media(max-width:767px){
+    footer {
+        padding: 23px 0px 21px;
+    }
+    .footer-main {
+        padding-bottom:  calc(4 * var(--margin-unit));
+    }       
+    .footer-nav {
+        display: none;
+    }
+    .footer-contact {
+        margin-top: 0px;
+    }
+    .footer-contact li { 
+        line-height: 21px;
+        font-size: 16px;
+        margin-bottom: 7px;
+    }
+    .footer-contact li img.phone {
+        width: 14px;
+        margin-right: 7px;
+    }
+    .footer-contact li img.mail {
+        width: 16px;
+        margin-right: 7px;
+    }    
+    .footer-copyright {
+        position: relative;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .footer-copyright div a {
+        position: absolute;
+        display: block;
+        right: 0px;
+        bottom:0px;
+        margin-right: 0px;
+    }
+    .footer-copyright div img {
+        width: 46px;
+    }
+    .footer-copyright ul {
+        flex-direction: column;
+    }
+    .footer-copyright ul li{
+        margin-top:  calc(1 * var(--margin-unit));
+        line-height: 21px;
+        margin-left: 0px;
+    }
+}
+
+/* fqa */
 .fqa {
-    margin-top: 80px;
+    margin-top:  calc(10 * var(--margin-unit));
     font-weight: 700;
-    min-height: 1080px;
 }
 .fqa h3 {
     font-size: 32px;
     line-height: 63px;
-    font-weight: 700;
 }
 .fqa ul {
     margin-top: 36px;
 }
 .fqa ul li {
-    margin-bottom: 40px;
+    margin-bottom:  calc(5 * var(--margin-unit));
 }
 .fqa p {
-    margin-left: 80px;
+    margin-left:  calc(10 * var(--margin-unit));
     font-size: 16px;
     line-height: 24px;
 }
 .fqa h4 {
-    margin-bottom: 16px;
+    margin-bottom:  calc(2 * var(--margin-unit));
     font-size: 20px;
     line-height: 23px;
 }
+@media(max-width:767px){
+    .fqa {
+        margin-top:  calc(3 * var(--margin-unit));
+    }
+    .fqa h3 {
+        font-size: 20px;
+        line-height: 28px;
+    }
+    .fqa ul {
+        margin-top: 12px;
+    }
+    .fqa ul li {
+        margin-bottom: 20px;
+    }
+    .fqa p {
+        margin-left: inherit;
+        font-size: 14px;
+        line-height: 21px;
+    }
+    .fqa h4 {
+        margin-bottom:  calc(1 * var(--margin-unit));
+        font-size: 16px;
+        line-height: 22px;
+    }
+}
+
+/* blog-nav */
+.blog-nav {
+    background: var(--secondary);
+}
+.blog-nav .container {
+    align-items: center;
+}
+.blog-nav ul {
+    font-size: 20px;
+    padding: 16px 0px;
+}
+.blog-nav ul li{
+    margin-right:  calc(6 * var(--margin-unit));
+}
+.blog-nav ul li:hover {
+    text-decoration: underline;
+}
+@media(max-width:1140px){
+    .blog-nav ul {
+        font-size: 16px;
+    }
+    .blog-nav ul li{
+        margin-right:  calc(4 * var(--margin-unit));
+    }
+}
+@media(max-width:767px){
+    .blog-nav {
+        display: none;
+    }
+}
+
 /* blog */
 .blog{
     margin-top: 82px;
 }
 .blog ul li {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
     margin-bottom: 60px;
-    position: relative;
 }
 .blog img{
     width: 630px;
@@ -310,7 +511,7 @@ footer {
 .blog-cont {
     font-size: 20px;
     color: #555555;
-    margin-top: 24px;
+    margin-top:  calc(3 * var(--margin-unit));
     line-height: 30px;
 }
 .btn-more {
@@ -318,9 +519,7 @@ footer {
     line-height: 54px;
     font-weight: 700;
     color: #650300;
-    position: absolute;
-    right:0px; 
-    bottom:0px;
+    text-align: right;
 }
 .btn-more:hover {
     text-decoration: underline;
@@ -333,7 +532,6 @@ footer {
 .pages ul {
     display: flex;
 }
-
 .pages ul li a {
     color: #555;
     font-size: 19px;
@@ -348,68 +546,9 @@ footer {
     background: #000;
     color: #fff;
 }
-
-
-
-
-/*在 iPad 直式下變更樣式*/
-@media(max-width:768px){
-    .container {
-        padding:0px 39px;
-    }
-    header {
-        padding: 30px 39px;
-    }
-        header ul li {
-        margin-right: 40px;
-    }
-        footer {
-        padding: 40px 0px 28px; 
-    }
-        .media img {
-        width: 24px;
-    }
-    .menu ul {
-        font-size: 16px;
-    }
-    .menu ul li{
-        margin-right: 32px;
-    }
-    
-    .footer-info ul li {
-        margin-right: 40px;
-    }    
-    .footer-info p {
-        line-height: 30px;
-        font-size: 20px;
-        padding-left: 33px;    
-    }
-    .phone {
-        margin-top: 24px;
-        background-size: 18px;
-    }
-    .mail {
-        margin-top: 11px;
-        margin-bottom: 27px;
-        background-size: 28px;
-
-    }
-    .media a {
-        margin-right: 24px;
-    }    
-    .copyright div a {
-        display: none;
-    }
-    .copyright ul li {
-        margin-right: 24px;
-    }
-    .qa h2 {
-        font-size: 48px;
-        line-height: 80px;
-        font-weight: 700;
-    }
+@media(max-width:1140px){
     .blog {
-        margin-top: 24px;
+        margin-top:  calc(3 * var(--margin-unit));
     }
     .blog img{
         width: 330px;
@@ -421,7 +560,7 @@ footer {
     .blogCategory {
         font-size: 16px;
         line-height: 21px;
-        margin-bottom: 16px;
+        margin-bottom:  calc(2 * var(--margin-unit));
     }
     .blogCategory span {
         font-size: 14px;
@@ -435,124 +574,14 @@ footer {
         font-size: 14px;
         line-height: 21px;
         color: #555;
-        position: initial;
         text-transform: lowercase;
+        float:right;
     }
     .pages {
         margin:104px 0;
     }
-    
-
-  } /* ipad end */
-
-
-
-  /*在 mobile 直式下變更樣式 */
-  @media(max-width: 414px){
-    .container {
-        padding:0px 4%;
-    }
-    header {
-        flex-direction: column;
-        align-items: stretch;
-        text-align: center;
-        padding: 10px 0 0;
-    }
-    header h1 img {
-        width: 48px;
-    }
-    header ul {
-        display: flex;
-        flex-wrap: wrap;
-        margin-top: 10px;
-    }
-    header ul li {
-        width: 50%;
-        margin-right: 0px;
-        border: 1px solid #fff;
-    }
-    header ul li a {
-        padding: 8px 0px;
-    }
-    .menu {
-        display: none;
-    }
-    footer {
-        padding: 23px 0px 21px;
-    }
-    .footer-info ul {
-        display: none;
-    }
-    .footer-info p {
-        line-height: 30px;
-        font-size: 16px;
-        padding-left: 33px;
-    }
-    .phone {
-        margin-top: 0px;
-        background-size: 14px;
-    }
-    .mail {
-        margin-top: 7px;
-        margin-bottom: 24px;
-        background-size: 20px;
-    }
-    .copyright {
-        position: relative;
-        flex-direction: column;
-        align-items: flex-start;
-    }
-    .copyright div a {
-        position: absolute;
-        display: block;
-        right: 0px;
-        bottom:0px;
-        margin-right: 0px;
-    }
-    .copyright div img {
-        width: 46px;
-    }
-    .copyright ul {
-        flex-direction: column;
-    }
-    .copyright ul li{
-        margin-top: 8px;
-        line-height: 21px;
-    }
-    .qa {
-        height: 143px;
-    }
-    .qa h2 {
-        font-size: 28px;
-        line-height: 40px;
-        font-weight: 400;
-    }
-    .qa img {
-        width: 24px;
-    }
-    .fqa {
-        margin-top: 24px;
-    }
-    .fqa h3 {
-        font-size: 20px;
-        line-height: 28px;
-    }
-    .fqa ul {
-        margin-top: 12px;
-    }
-    .fqa ul li {
-        margin-bottom: 20px;
-    }
-    .fqa p {
-        margin-left: inherit;
-        font-size: 14px;
-        line-height: 21px;
-    }
-    .fqa h4 {
-        margin: 8px;
-        font-size: 16px;
-        line-height: 22px;
-    }
+  } 
+  @media(max-width: 767px){
     .blog ul li {
         flex-wrap: wrap;
         justify-content: space-between;
@@ -592,11 +621,7 @@ footer {
         line-height: 18px;
         padding: 8px;
     }
-    
-    
-
-  }/* mobile end */
-
+  }
 
 
 
