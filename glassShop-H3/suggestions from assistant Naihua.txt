@@ -1,0 +1,29 @@
+header、footer：
+
+1. header 建議可以調整 415 ~ 673 px 、 footer 建議可以調整 415 ~ 676px 文字擠壓的部分
+
+2. .footer-info 的 ( phone , mail )、media 建議可以使用 ul li 結構
+
+
+
+常見問題：
+
+1. Q1 , 2 , 3 .....，A1. 下方文字因屬於同一個 p 段落標籤，可利用 </br> 斷行
+
+2. .fqa 不需設定 min-height ，建議用 padding 去推擠高度
+
+
+
+部落格：
+
+1. .menu ul 不需設定 height 與 line-height (文字行與行之間的距離) ，建議用 padding 推擠高度
+
+2. .blog ul li 不需要 align-items: flex-start (本身預設值)
+
+3. .btn-more 不需用定位 (提醒：父元素 .blog ul li { position:relative } 去除 )， 用 text-align:right 文字靠右，a 標籤建議加上 display:block 
+
+4. 斷點在 414px 才變成單行，會導致 5xx~6xx px 會變得擁擠，建議可在 767px 以下就變成單欄排版
+
+5. 769 ~ 1000px 時，左右邊的內容太過貼齊，可以嘗試用 padding。常見問題頁面也有內容過於貼齊的問題，可以一起處理
+
+6. 可以調整 415~490 px 出現的 X 軸
