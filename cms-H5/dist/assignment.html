@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>管理使用者</title>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="./assets/style/all.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+
+<body>
+  
+  <!-- .sidebar>header>(h1.logo+(ul.nav>li*6>a))+.user>img+p>span -->
+  <div class="container">
+    <div class="row no-gutters">
+      <div class="sidebar col-md-3 d-flex flex-column justify-content-between min-vh-100 bg-cms-lightest-green">
+        <div class="pt-4">
+          <img class="pb-4 ml-4 mt-4" src="./assets/images/logo-ANSWER.svg" alt="">
+          <ul class="nav d-flex flex-column font-weight-bold">
+            <li>
+              <a href="#">
+                <span class="material-icons">insert_chart</span>Dashboard
+              </a>
+            </li>
+            <li>
+              <a href="#" class="pl-4">
+                <span class="material-icons">question_answer</span>Question
+              </a>
+            </li>
+            <li>
+              <a href="#" class="pl-4">
+                <span class="material-icons">assignment</span>Assignment
+              </a>
+            </li>
+            <li>
+              <a href="#" class="pl-4">
+                <span class="material-icons">video_library</span>Course
+              </a>
+            </li>
+            <li>
+              <a href="#" class="pl-4 active">
+                <span class="material-icons">group</span>Admin
+              </a>
+            </li>
+            <li>
+              <a href="#" class="pl-4">
+                <span class="material-icons">settings</span>Settings
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="user pl-4 d-flex">
+          <img class="align-bottom" src="./assets/images/andychen.jpeg" alt="">
+          <p class="pl-3"><span class="font-weight-bold">Andy Chen</span><br><span class="text-cms-grey">andy0401@mail.com</span></p>
+        </div>
+      </div>
+      <div class="main col-md-9 pl-3">
+        
+<!-- header>(div>{Admin}+span{Add New Admin})+div>sapn.search+span.notice -->
+<header class="d-flex justify-content-between align-items-center">
+    <div class="d-flex py-4 font-weight-bold"><span class="h3">Assignment</span>
+        <a href="##" class="small mt-2" data-toggle="modal" data-target="#newAdmin">
+            <span class="ml-5 mr-1">All Courses</span>
+            <span class="material-icons text-primary">expand_more</span>
+        </a>
+    </div>
+    <div class="d-flex">
+        <a href="##" class="pr-4">
+            <span class="material-icons">search</span>
+        </a>
+        <a href="##">
+            <span class="material-icons">notifications_active</span>
+        </a>
+    </div>
+</header>
+<!-- table>(thead>tr>th*5)+tbody>tr*10>td*5 -->
+<main>
+    <div class="d-flex">
+        <p>All(4)</p>
+        <span class="material-icons text-primary">expand_more</span>
+        <span class="ml-auto small">2 comments</span>
+    </div>
+    <div class="assignment-wrap d-flex justify-content-between">
+        <ul class="assignment-list d-flex flex-wrap col-md-5 list-unstyled list-group rounded-0">
+            <li class="list-group-item">
+                <a href="#" class="p-2 assignment-selected">
+                    <p class="d-flex justify-content-between small text-secondary mb-1">Chapter Assignment 2<span>4 hrs ago</span></p>
+                    <p class="d-flex justify-content-between h6 text-secondary mb-1">Please check this file…<span class=" small text-grey">Emily Wang</span></p>
+                </a>
+            </li>
+            <li class="list-group-item">
+                <a href="#" class="p-2">
+                    <p class="d-flex justify-content-between small text-secondary mb-1">Chapter Assignment 1<span>12 hrs ago</span></p>
+                    <p class="d-flex justify-content-between h6 text-secondary  mb-1">My Homework<span class=" small text-grey">David Xu</span></p>
+                </a>
+            </li>
+            <li class="list-group-item">
+                <a href="#" class="p-2">
+                    <p class="d-flex justify-content-between small text-secondary mb-1">Final Assignment<span>18 hrs ago</span></p>
+                    <p class="d-flex justify-content-between h6 text-secondary mb-1">Have a problem with this…<span class=" small text-grey">Tony Wei</span></p>
+                </a>
+            </li>
+            <li class="list-group-item">
+                <a href="#" class="p-2">
+                    <p class="d-flex justify-content-between small text-secondary mb-1">Final Assignment<span>19 hrs ago</span></p>
+                    <p class="d-flex justify-content-between h6 text-secondary  mb-1">Did I do it right?<span class=" small text-grey">Christina Lin</span></p>
+                </a>
+            </li>
+        </ul>
+        <div class="assignment-body">
+            <div class="d-flex justify-content-between align-items-center p-2 border bg-cms-lightest-green">
+                <div>
+                    <p class="small text-secondary mb-1">Chapter Assignment 2 / HTML&CSS</p>
+                    <p class="h6 text-secondary  mb-1">10:38 AM (4 hours ago)</p>
+                </div>
+                <span class="material-icons">more_vert</span>
+            </div>
+            <div class="d-flex border border-top-0 border-bottom-0 pt-3 px-3">
+                <span class="user-pic emily mr-2"></span>
+                <div class="border-bottom">
+                    <p class="h6 mb-0">Emily Wang</p>
+                    <p class="text-grey small">10:38 AM (4 hours ago)</p>
+                    <p class="text-secondary small">Hi Teacher, the attached file is my homework of chapter 2. And here comes a question: Why in the following code the height of the <span class="bg-cms-lightest-green text-primary px-1">div</span> is bigger than the height of the <span class="bg-cms-lightest-green text-primary px-1">img</span> ? There is a gap below the image, but it doesn’t seems to be a padding/margin. <br>What is the gap or extra space below image?</p>
+                    <a href="#" class="d-flex align-items-center border bg-cms-lightest-green p-2 mb-3 font-weight-bold"><span class="material-icons mr-1">attach_file</span>HW-2-David.zip</a>
+                </div>
+            </div>
+            <div class="d-flex border border-top-0 pt-3 px-3">
+                <span class="user-pic andy mr-2"></span>
+                <div>
+                    <div class="d-flex justify-content-between">
+                        <div>
+                            <p class="h6 mb-0">Andy Chen (You)</p>
+                            <p class="text-grey small">13:24 AM (1 hours ago)</p>
+                        </div>
+                        <div>
+                            <span class="material-icons mr-3">star_border</span>
+                            <span class="material-icons">edit</span>
+                        </div>
+                    </div>
+                    <p class="text-secondary small">Hi David, by default, an image is rendered inline, like a letter so it sits on the same line that a, b, c and d sit on. There is space below that line for the descenders you find on letters like g, j, p and q.</p>
+                    <p>You can:</p>
+                    <ul class="small">
+                        <li>adjust the <span class="bg-cms-lightest-green text-primary px-1">vertical-align</span> of the image to position it elsewhere (e.g. the <span class="bg-cms-lightest-green text-primary px-1">middle</span> )</li>
+                        <li>change the <span class="bg-cms-lightest-green text-primary px-1">display</span> so it isn’t inline.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="d-flex justify-content-between align-items-center pt-3 pb-4">
+                <div>
+                    <span class="material-icons mr-3">chevron_left</span>
+                    <span class="material-icons">chevron_right</span>
+                </div>
+                <div>
+                    <button class="btn btn-outline-primary mr-2 rounded-0">Mark as read</button>
+                    <button class="btn btn-primary rounded-0">Reply</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+      </div>
+    </div>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+</body>
+
+</html>

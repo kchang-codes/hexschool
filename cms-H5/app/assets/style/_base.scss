@@ -1,0 +1,76 @@
+a {
+    display: block;
+}
+.nav {
+    li {
+        margin-bottom: 16px;
+        line-height: 32px;
+        a {
+            padding-left: 32px !important;
+        }
+        &:hover {
+            background: #CDDDCD;
+            color: #121212;
+        }        
+    }
+    span {
+        margin-right: 18px;
+        vertical-align: middle;
+    }
+}
+.user {
+    img {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        }
+    p {
+        margin-top: -2px;
+        line-height: 22px;
+    }
+    p span:last-child {
+        font-size: 14px;
+    }
+}
+header div span {
+        vertical-align: middle;
+}
+.material-icons {
+    font-size: 24px;
+}
+.navigation{
+    font-size: 16px;
+    .material-icons {
+        font-size: 16px;
+    }
+}
+.user-data {
+    .user-img {
+        width: 141px;
+        height: 141px;
+        background-size:cover;
+        background-position:center;
+        background-image: url(./../images/emir.jpeg);
+    }
+}
+.user-pic {
+    min-width: 40px;
+    width: 40px;
+    height: 40px;
+    display: block;
+    border-radius: 50%;
+    background-size:cover;
+    background-position:center;
+}
+.emily {
+    background-image: url(../images/emilywang.jpeg);
+}
+.andy{
+    background-image: url(../images/andychen.jpeg);
+}
+.assignment-selected {
+    background: #EDF4EE;
+}
+.assignment-list a:hover {
+    background: #EDF4EE;
+}
